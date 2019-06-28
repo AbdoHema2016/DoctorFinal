@@ -18,8 +18,25 @@ var finalTitle = ""
 class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var internetConnection: UILabel!
+    @IBAction func logout(_ sender: UIButton) {
+        
+        if Auth.auth().currentUser != nil {
+            do {
+                try Auth.auth().signOut()
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUp")
+                present(vc, animated: true, completion: nil)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+        
+        
+    }
     
+    @IBOutlet weak var Appointment_Btn: UIButton!
     @IBOutlet weak var filter_Btn: UIBarButtonItem!
+    @IBOutlet weak var notification_Btn: UIButton!
     var filterChoice = Int()
     var search_Btn = UIButton()
     @IBAction func search_Btn(_ sender: UIButton) {
@@ -131,10 +148,7 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             
             
             
-            if let text = value["text"] as? String{
-                cell.postText.text = text
-                
-            }
+            
             if let text = value["postTitle"] as? String{
                 cell.postTitle.text = text
                 
@@ -394,8 +408,24 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         saturdayNotification()
         wednesdayNotification()
         
+        
+        notification_Btn.layer.cornerRadius = 5
+        notification_Btn.layer.borderWidth = 1
+        notification_Btn.layer.borderColor = UIColor.black.cgColor
+        
+        
+       
+        Appointment_Btn.layer.cornerRadius = 5
+        Appointment_Btn.layer.borderWidth = 1
+        Appointment_Btn.layer.borderColor = UIColor.black.cgColor
+        
+        
+        
         search_Btn = UIButton(frame:CGRect(origin:CGPoint(x:self.view.frame.width / 1.2,y:self.view.frame.height-120),size:CGSize(width:50,height:50)))
-        search_Btn.backgroundColor = UIColor.black
+        search_Btn.layer.cornerRadius = 0.5 * search_Btn.bounds.size.width
+        search_Btn.clipsToBounds = true
+        search_Btn.setImage(UIImage(named:"searchIcon.png"), for: .normal)
+        search_Btn.backgroundColor = UIColor(red: 0, green: 153/255, blue: 244/255, alpha: 1)
         self.navigationController?.view.addSubview(search_Btn)
         search_Btn.addTarget(self, action: #selector(searchButtonAction), for: .touchUpInside)
 

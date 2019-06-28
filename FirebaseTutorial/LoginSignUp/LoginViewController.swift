@@ -23,6 +23,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
 @IBOutlet weak var emailTextField: UITextField!
 @IBOutlet weak var passwordTextField: UITextField!
 
+    var values = [String : Any]()
 
     override func viewDidLoad() {
         Auth.auth().addStateDidChangeListener { auth, user in
@@ -66,12 +67,36 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
                     
                     return
                 }
+                let userRef = Database.database().reference().child("Patients")
                 
+                self.values = ["fullName":user?.displayName! ?? "Your Name"]
+                userRef.child((user?.uid)!).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
+                    if error != nil {
+                        print("oops, an error")
+                    } else {
+                        print("completed")
+                        
+                    }
+                })
                 // Present the main view
-                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "TBC") {
+                
+                let defaults = UserDefaults.standard
+                if defaults.object(forKey: "isFirstTimeLoggingInaa") == nil {
+                    print("first time using app")
+                    
+                    defaults.set("No", forKey:"isFirstTimeLoggingInaa")
+                    defaults.synchronize()
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "profileData")
                     UIApplication.shared.keyWindow?.rootViewController = viewController
                     self.dismiss(animated: true, completion: nil)
                 }
+                
+                /*
+                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "TBC") {
+                    UIApplication.shared.keyWindow?.rootViewController = viewController
+                    self.dismiss(animated: true, completion: nil)
+                }*/
                 
             })
             
@@ -99,7 +124,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
                     finalUserID = (user?.uid)!
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
-                    
+                    /*
                     let defaults = UserDefaults.standard
                     if defaults.object(forKey: "isFirstTimeLoggingIn") == nil {
                         print("first time using app")
@@ -111,7 +136,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
                         UIApplication.shared.keyWindow?.rootViewController = viewController
                         self.dismiss(animated: true, completion: nil)
                     }
-                    
+                    */
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "TBC")
                     self.present(vc!, animated: true, completion: nil)

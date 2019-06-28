@@ -66,6 +66,13 @@ class BeforeNAfterVC: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
             }
             
+             if let text = value["beforeNAfterTitle"] as? String{
+                cell.beforeNAfterTitle.text = text
+            }
+            if let text = value["beforeNAfterDetail"] as? String{
+                cell.beforeNAfterDetail.text = text
+            }
+            
             
             
             

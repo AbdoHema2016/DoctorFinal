@@ -56,30 +56,36 @@ class SignUpViewController: UIViewController {
                 if error == nil {
                     finalUserID = (user?.uid)!
                     print("You have successfully signed up")
+                    
+                    let finalUID = (user?.uid)!
+                    self.values = ["UId":finalUID,"fullName":"Enter your Name"]
+                    self.ref.child(finalUID).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
+                        if error != nil {
+                            print("oops, an error")
+                        } else {
+                            print("completed")
+                            
+                        }
+                    })
+                    //
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     
-//                    let defaults = UserDefaults.standard
-//                    if defaults.object(forKey: "isFirstTimeLoggingIn") == nil {
-//                        print("first time using app")
-//
-//                        defaults.set("No", forKey:"isFirstTimeLoggingIn")
-//                        defaults.synchronize()
-//                        let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
-//                        let viewController = storyboard.instantiateViewController(withIdentifier: "BasicInfoVC")
-//                        UIApplication.shared.keyWindow?.rootViewController = viewController
-//                        self.dismiss(animated: true, completion: nil)
-//                    }
-//
-//                    let finalUID = (user?.uid)!
-//                    self.values = ["UId":finalUID,"Email":self.emailTextField.text!]
-//                    self.ref.child(finalUID).updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
-//                        if error != nil {
-//                            print("oops, an error")
-//                        } else {
-//                            print("completed")
-//
-//                        }
-//                    })
+                    let defaults = UserDefaults.standard
+                    if defaults.object(forKey: "isFirstTimeLoggingInaa") == nil {
+                        print("first time using app")
+
+                        defaults.set("No", forKey:"isFirstTimeLoggingInaa")
+                        defaults.synchronize()
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
+                        let viewController = storyboard.instantiateViewController(withIdentifier: "profileData")
+                        UIApplication.shared.keyWindow?.rootViewController = viewController
+                        self.dismiss(animated: true, completion: nil)
+                    }
+
+                    
+                    
+                    
+                    //
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "TBC")
                     self.present(vc!, animated: true, completion: nil)
                     

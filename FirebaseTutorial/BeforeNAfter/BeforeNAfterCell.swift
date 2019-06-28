@@ -11,6 +11,8 @@ class BeforeNAfterCell: UITableViewCell {
     
     @IBOutlet weak var beforePic: UIImageView!
     
+    @IBOutlet weak var beforeNAfterDetail: UILabel!
+    @IBOutlet weak var beforeNAfterTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         

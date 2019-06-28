@@ -17,7 +17,11 @@ var finalMedications = ""
 var finalAppointmentDate = ""
 var finalDate = ""
 var finalVisitType = ""
-var visitDate = ""
+var visitDateTxt = ""
+var visitNumTxt = ""
+var visitDiagnosis = ""
+var visitTreatment = ""
+var visitDone = ""
 class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     let user = Auth.auth().currentUser
     var ref = Database.database().reference().child("Patients")
@@ -28,8 +32,11 @@ class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
     
     
     
+    @IBOutlet weak var upperView_UIView: UIView!
     
+    @IBOutlet weak var Appointment_Btn: UIButton!
     
+    @IBOutlet weak var notification_Btn: UIButton!
     @IBOutlet weak var profileTV: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -44,19 +51,44 @@ class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         let model = profileList[indexPath.row]
         if let value = model.value as? [String:Any]{
             
-            if let text = value["name"] as? String{
+            if let text = value["visitDate"] as? String{
+                visitDateTxt = text
+                
+                
+            }
+            if let text = value["visitNum"] as? String{
+                visitNumTxt = text
+                
+                
+            }
+            
+            if let text = value["visitDiagnosis"] as? String{
+                visitDiagnosis = text
+            }
+            if let text = value["visitTreatment"] as? String{
+                visitTreatment = text
+            }
+            if let text = value["visitDone"] as? String{
+                visitDone = text
+            }
+            
+            
+            if let text = value["fullName"] as? String{
                 print(text)
                 performSegue(withIdentifier: "profileSegue", sender: self)
                 
-            }else{
-                if let text = value["visitDate"] as? String{
-                    visitDate = text
-                    
-                    
-                }
-                
+            }else if let text = value["visitDate"] as? String{
+                print(text)
                 performSegue(withIdentifier: "visitSegue", sender: self)
+                
+                
+               
+            }else{
+                
+                performSegue(withIdentifier: "medicineSegue", sender: self)
             }
+            
+            
             
         }
         
@@ -69,17 +101,18 @@ class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         let model = profileList[indexPath.row]
         if let value = model.value as? [String:Any]{
             
-            if let text = value["name"] as? String{
+            if let text = value["fullName"] as? String{
                 cell.profileTitle_LBL!.text = text
                 
                 
             }
             
-            if let text = value["detail"] as? String{
+            if let text = value["jobTitle"] as? String{
                 cell.profileDetail_LBL!.text = text
                 
                 
             }
+           
             
             if let postPicture = value["profilePic"] as? String{
                 
@@ -124,9 +157,29 @@ class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        notification_Btn.layer.cornerRadius = 5
+        notification_Btn.layer.borderWidth = 1
+        notification_Btn.layer.borderColor = UIColor.black.cgColor
+        
+        
+        
+        Appointment_Btn.layer.cornerRadius = 5
+        Appointment_Btn.layer.borderWidth = 1
+        Appointment_Btn.layer.borderColor = UIColor.black.cgColor
+        
+        
+        upperView_UIView.layer.shadowColor = UIColor.black.cgColor
+        upperView_UIView.layer.shadowOpacity = 0.7
+        upperView_UIView.layer.shadowOffset = .zero
+        upperView_UIView.layer.shadowRadius = 10
+        upperView_UIView.layer.shadowPath = UIBezierPath(rect: upperView_UIView.bounds).cgPath
+        upperView_UIView.layer.shouldRasterize = true
+        upperView_UIView.layer.rasterizationScale = UIScreen.main.scale
+        
         if let user = self.user {
             print("the user",user.uid)
-           
+          
             ref.child(user.uid).observeSingleEvent(of: .value, with: { snapshot in
                 for child in snapshot.children {
                     let snap = child as! DataSnapshot
@@ -134,19 +187,17 @@ class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
                     
                     
                     
-                    
-                    
                 }
-                
+                print(snapshot)
                 self.profileTV.reloadData()
             })
- 
+
             historyRef.child(user.uid).observeSingleEvent(of: .value, with: { snapshot in
                 for child in snapshot.children {
                     let snap = child as! DataSnapshot
                     self.profileList.append(snap)
                     
-                    print(snapshot)
+                    //print(snapshot)
                     
                 }
                 

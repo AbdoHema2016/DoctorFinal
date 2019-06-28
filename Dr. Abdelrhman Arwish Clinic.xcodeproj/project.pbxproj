@@ -16,13 +16,12 @@
 		BC5E5D381FA8DC29007497F6 /* beforeNAfterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E5D371FA8DC29007497F6 /* beforeNAfterVC.swift */; };
 		BC5E5D3A1FA8DCC6007497F6 /* BeforeNAfterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5E5D391FA8DCC6007497F6 /* BeforeNAfterCell.swift */; };
 		BC6AB01F1FB7005900639A18 /* ReserveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6AB01E1FB7005900639A18 /* ReserveVC.swift */; };
-		BC8CD7171FD6AE5900E438D4 /* BasicInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CD7161FD6AE5900E438D4 /* BasicInfoVC.swift */; };
+		BC7F465422B42938002E8FE6 /* DiagnosisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F465322B42937002E8FE6 /* DiagnosisVC.swift */; };
 		BC8CD7191FD6C5FB00E438D4 /* IndividualAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CD7181FD6C5FB00E438D4 /* IndividualAppointmentVC.swift */; };
 		BCA4807A22B2A8ED00D6CBD5 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4807922B2A8ED00D6CBD5 /* UserProfileVC.swift */; };
 		BCA4807C22B2A94700D6CBD5 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA4807B22B2A94700D6CBD5 /* ProfileCell.swift */; };
 		BCC0714D206CFAF50098EBAD /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC0714C206CFAF50098EBAD /* HistoryVC.swift */; };
 		BCC6829422B31107004F5604 /* VisitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6829322B31107004F5604 /* VisitVC.swift */; };
-		BCE0078D22B2857E00AF17EA /* ProfileTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0078C22B2857E00AF17EA /* ProfileTVC.swift */; };
 		BCECAB341FE57D1B00363431 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BCECAB331FE57D1B00363431 /* Reachability.m */; };
 		BCECAB361FE57E1D00363431 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECAB351FE57E1D00363431 /* Reachability.swift */; };
 		C043F062DA513C3DA7EFC655 /* Pods_Doc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25664232AFC2FC054DAB3C05 /* Pods_Doc.framework */; };
@@ -54,13 +53,12 @@
 		BC676270212F04F300135BB8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		BC676271212F04F300135BB8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BC6AB01E1FB7005900639A18 /* ReserveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveVC.swift; sourceTree = "<group>"; };
-		BC8CD7161FD6AE5900E438D4 /* BasicInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoVC.swift; sourceTree = "<group>"; };
+		BC7F465322B42937002E8FE6 /* DiagnosisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisVC.swift; sourceTree = "<group>"; };
 		BC8CD7181FD6C5FB00E438D4 /* IndividualAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualAppointmentVC.swift; sourceTree = "<group>"; };
 		BCA4807922B2A8ED00D6CBD5 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		BCA4807B22B2A94700D6CBD5 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		BCC0714C206CFAF50098EBAD /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		BCC6829322B31107004F5604 /* VisitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitVC.swift; sourceTree = "<group>"; };
-		BCE0078C22B2857E00AF17EA /* ProfileTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTVC.swift; sourceTree = "<group>"; };
 		BCECAB311FE57CFF00363431 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		BCECAB321FE57D1A00363431 /* Doc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Doc-Bridging-Header.h"; sourceTree = "<group>"; };
 		BCECAB331FE57D1B00363431 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -152,11 +150,10 @@
 			isa = PBXGroup;
 			children = (
 				F4443AF21DF2E34F00800C92 /* ProfileVC.swift */,
-				BC8CD7161FD6AE5900E438D4 /* BasicInfoVC.swift */,
-				BCE0078C22B2857E00AF17EA /* ProfileTVC.swift */,
 				BCA4807922B2A8ED00D6CBD5 /* UserProfileVC.swift */,
 				BCA4807B22B2A94700D6CBD5 /* ProfileCell.swift */,
 				BCC6829322B31107004F5604 /* VisitVC.swift */,
+				BC7F465322B42937002E8FE6 /* DiagnosisVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -374,14 +371,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCE0078D22B2857E00AF17EA /* ProfileTVC.swift in Sources */,
+				BC7F465422B42938002E8FE6 /* DiagnosisVC.swift in Sources */,
 				BC5E5D3A1FA8DCC6007497F6 /* BeforeNAfterCell.swift in Sources */,
 				BC6AB01F1FB7005900639A18 /* ReserveVC.swift in Sources */,
 				BC5E5D381FA8DC29007497F6 /* beforeNAfterVC.swift in Sources */,
 				F4443AF71DF2E34F00800C92 /* LoginViewController.swift in Sources */,
 				BC4A66521FE448D4009FC8EF /* IndividualPostVC.swift in Sources */,
 				F4443AF51DF2E34F00800C92 /* SignUpViewController.swift in Sources */,
-				BC8CD7171FD6AE5900E438D4 /* BasicInfoVC.swift in Sources */,
 				BCC6829422B31107004F5604 /* VisitVC.swift in Sources */,
 				BCC0714D206CFAF50098EBAD /* HistoryVC.swift in Sources */,
 				F4443AF81DF2E34F00800C92 /* ResetPasswordViewController.swift in Sources */,
