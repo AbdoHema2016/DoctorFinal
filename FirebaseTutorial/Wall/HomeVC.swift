@@ -18,6 +18,8 @@ var finalTitle = ""
 class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var internetConnection: UILabel!
+    @IBOutlet weak var upperView: UIView!
+    @IBOutlet weak var upperViewHeightConstraint: NSLayoutConstraint!
     @IBAction func logout(_ sender: UIButton) {
         
         if Auth.auth().currentUser != nil {
@@ -52,68 +54,12 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 DispatchQueue.main.async {
                     
                     self.internetConnection.isHidden = true
-                    /*
-                     if Auth.auth().currentUser != nil {
-                     // User is signed in.
-                     // ...
-                     if let user = self.user {
-                     // The user's ID, unique to the Firebase project.
-                     // Do NOT use this value to authenticate with your backend server,
-                     // if you have one. Use getTokenWithCompletion:completion: instead.
-                     let uid = user.uid
-                     let displayName = user.displayName
-                     let photoURL = user.photoURL?.absoluteString
-                     let email = user.email
-                     print(uid)
-                     print(email!)
-                     // self.userName.text = displayName
-                     //self.userEmail.text = email
-                     
-                     let url = URL(string: photoURL!)
-                     if let data = try? Data(contentsOf: url!) {//make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                     // self.userImage.image = UIImage(data: data)
-                     //userImage.do
-                     print(photoURL!)
-                     // ...
-                     }
-                     }
-                     
-                     
-                     }*/
-                    
                 }
             }else{
                 DispatchQueue.main.async {
                     
                     self.internetConnection.isHidden = true
-                    /*if Auth.auth().currentUser != nil {
-                     // User is signed in.
-                     // ...
-                     if let user = self.user {
-                     // The user's ID, unique to the Firebase project.
-                     // Do NOT use this value to authenticate with your backend server,
-                     // if you have one. Use getTokenWithCompletion:completion: instead.
-                     let uid = user.uid
-                     let displayName = user.displayName
-                     let photoURL = user.photoURL?.absoluteString
-                     let email = user.email
-                     print(uid)
-                     print(email!)
-                     self.userName.text = displayName
-                     self.userEmail.text = email
-                     
-                     let url = URL(string: photoURL!)
-                     if let data = try? Data(contentsOf: url!) {//make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                     self.userImage.image = UIImage(data: data)
-                     //userImage.do
-                     print(photoURL!)
-                     // ...
-                     }
-                     }
-                     
-                     
-                     }*/
-                    
+                   
                 }
             }
         }else{
@@ -171,100 +117,13 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             
             
         }
-        /*
-        if isSearching {
-           let model = filteredWall[indexPath.row]
-            if let value = model.value as? [String:Any]{
-                
-                
-                
-                if let text = value["postText"] as? String{
-                    cell.postText.text = text
-                    data.append(text)
-                }
-                
-                if let postPicture = value["postPic"] as? String{
-                    
-                    let imageUrl:NSURL? = NSURL(string: postPicture)
-                    if let url = imageUrl {
-                        cell.postPic.sd_setImage(with: url as URL)
-                        
-                        
-                    }
-                    
-                    
-                }
-               
-            }
-        }
-        else {
-           let model = wallList[indexPath.row]
-            if let value = model.value as? [String:Any]{
-                
-                
-                
-                if let text = value["postText"] as? String{
-                    cell.postText.text = text
-                    
-                }
-                
-                if let postPicture = value["postPic"] as? String{
-                    
-                    let imageUrl:NSURL? = NSURL(string: postPicture)
-                    if let url = imageUrl {
-                        cell.postPic.sd_setImage(with: url as URL)
-                        
-                        
-                    }
-                    
-                    
-                }
-                
-                
-                
-                
-                
-            }
-        }
- */
-        /*
-        let post : NSDictionary?
-        if searchController.isActive && searchController.searchBar.text != "" {
-            
-            post = filteredPosts[indexPath.row]
-        }
-        else{
-            post = self.postsArray[indexPath.row]
-        }
-        
-        cell.postText.text = post!["postText"] as? String
-        */
+
        
         return cell
     }
-    /*
-    func updateSearchResults(for searchController: UISearchController) {
-        filterContent(searchText: self.searchController.searchBar.text!)
-    }*/
+
     var databaseRef = Database.database().reference()
-    /*
-    func filterContent(searchText:String){
-        if searchText == ""{
-            print("nothing")
-        }
-        else{
-        self.filteredPosts = self.postsArray.filter{ post in
-            
-            let postName = post["postText"] as? String
-            
-            
-            return(postName?.lowercased().contains(searchText.lowercased()))!
-            
-            
-        }
-        }
-        wallTV.reloadData()
-    }*/
+  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = wallList[indexPath.row]
         //print(wallList[postIndex])
@@ -288,43 +147,7 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         search_Btn.isHidden = true
          performSegue(withIdentifier: "postIDetailsVC", sender: self)
     }
-    /*
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        
-        if searchBar.text == nil || searchBar.text == ""{
-            isSearching = false
-            view.endEditing(true)
-            print("Iam here")
-            print(wallList)
-            self.ref.queryOrdered(byChild: "postText").queryEqual(toValue: searchBar.text).observe(.childAdded, with: { (DataSnapshot) in
-                print("hello")
-                print(DataSnapshot.childrenCount)
-                //self.wallList.removeAll()
-                self.wallList.append(DataSnapshot)
-                
-                self.wallTV.reloadData()
-            })
-            wallTV.reloadData()
-        }else{
-            isSearching = true
-            print(searchBar.text!)
-            self.ref.queryOrdered(byChild: "postText").queryEqual(toValue: searchBar.text).observe(.childAdded, with: { (DataSnapshot) in
-                print("hello")
-                print(DataSnapshot.childrenCount)
-                //self.wallList.removeAll()
-                self.wallList.append(DataSnapshot)
-                
-                self.wallTV.reloadData()
-            })
-            print(wallList)
-            view.endEditing(false)
-            wallTV.reloadData()
-            
-        }
-        
-    }
- */
+  
     func searchButtonAction() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "searchingItems") as! UITableViewController
@@ -400,11 +223,16 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         })
         
     }
+    @objc func openReserve(){
+       performSegue(withIdentifier: "ReserveSegue", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //filter_Btn.target = self.revealViewController()
         //filter_Btn.action = #selector(SWRevealViewController.revealToggle(_:))
-        
+        Appointment_Btn.addTarget(self, action: #selector(openReserve), for: .touchUpInside)
+       
+        upperView.setShadow()
         saturdayNotification()
         wednesdayNotification()
         
@@ -715,6 +543,7 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             DispatchQueue.main.async {
                 
                 self.internetConnection.isHidden = true
+                self.upperViewHeightConstraint.constant = 0
             }
             
         }
@@ -732,28 +561,10 @@ class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }catch{
             print("couldn't start notifier")
         }
-        //searchController.searchResultsUpdater = self
-       // searchController.dimsBackgroundDuringPresentation = false
-        //definesPresentationContext = true
-        //wallTV.tableHeaderView = searchController.searchBar
-        
-       // searchBar.delegate = self
-        //searchBar.returnKeyType = UIReturnKeyType.done
-        
+
         
         
         wallList.removeAll()
-        /*
-        databaseRef.child("Wall").queryOrdered(byChild: "postText").observe(.childAdded, with: {(snapshot) in
-            
-            self.postsArray.append((snapshot.value as? NSDictionary)!)
-            
-            self.wallTV.insertRows(at: [IndexPath(row:self.postsArray.count - 1,section:0)], with: UITableViewRowAnimation.automatic)
-            
-        }) {(error) in
-            print(error.localizedDescription)
-        }
-        */
         
         
     }

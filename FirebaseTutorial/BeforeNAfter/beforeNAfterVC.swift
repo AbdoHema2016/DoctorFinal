@@ -12,9 +12,14 @@ import SDWebImage
 class BeforeNAfterVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
+    @IBOutlet weak var upperView: UIView!
+    @IBOutlet weak var btnNotification: UIButton!
+    @IBOutlet weak var btnCalender: UIButton!
     @IBOutlet weak var BATV: UITableView!
     @IBOutlet weak var internetConnection: UILabel!
     //object for the internet connectivity reachability class
+    @IBOutlet weak var upperViewHeightConstraints: NSLayoutConstraint!
+    
     let reachability = MyReachability()!
     func internetChanged(note: Notification) {
         
@@ -82,10 +87,16 @@ class BeforeNAfterVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     override func viewDidLoad() {
         
+        upperView.setShadow()
+        upperView.setBorder(color: UIColor.gray)
+        btnNotification.setCornerRadius(isClipped: true, isRounded: false)
+        btnCalender.setCornerRadius(isClipped: true, isRounded: false)
+        
         reachability.whenReachable = { _ in
             DispatchQueue.main.async {
                 
                 self.internetConnection.isHidden = true
+                self.upperViewHeightConstraints.constant = 0
             }
             
         }

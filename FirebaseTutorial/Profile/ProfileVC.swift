@@ -136,28 +136,36 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UINa
                         print(error!)
                         return
                     }
-            if let postImageUrl = metadata?.downloadURL()?.absoluteString{
-                
-                let changePhotoRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changePhotoRequest?.photoURL = metadata?.downloadURL()
-                
-                changePhotoRequest?.commitChanges { (error) in
-                    print(error.debugDescription)
-                }
-                
-                print(postImageUrl + "here")
-                self.values = ["age":self.userBirthday_TxtField.text ?? "Please Enter your Name","fullName":self.userName_TxtField.text!,"jobTitle":self.userJob_TxtField.text!,"phoneNumber":self.userPhoneNum_TxtField.text!,"gender":self.userGender.text!,"profilePic":postImageUrl]
-                
-                self.userRef.child((self.user?.uid)!).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
-                    if error != nil {
-                        print("oops, an error")
-                    } else {
-                        print("completed")
-                        
+                    storageRef.downloadURL { (url, error) in
+                        if let downloadURL = url{
+                            
+                            let postImageUrl = url?.absoluteString
+                            /*
+                            let changePhotoRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                            changePhotoRequest?.photoURL = metadata?.downloadURL()
+                            
+                            changePhotoRequest?.commitChanges { (error) in
+                                print(error.debugDescription)
+                            }
+                            */
+                            
+                            print(postImageUrl ?? "sdd" + "here")
+                            self.values = ["age":self.userBirthday_TxtField.text ?? "Please Enter your Name","fullName":self.userName_TxtField.text!,"jobTitle":self.userJob_TxtField.text!,"phoneNumber":self.userPhoneNum_TxtField.text!,"gender":self.userGender.text!,"profilePic":postImageUrl ?? "sdd"]
+                            
+                            self.userRef.child((self.user?.uid)!).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
+                                if error != nil {
+                                    print("oops, an error")
+                                } else {
+                                    print("completed")
+                                    
+                                }
+                            })
+                        } else {
+                            // Uh-oh, an error occurred!
+                            return
+                        }
                     }
-                })
-                
-                    }
+            
                 })
                 
             }

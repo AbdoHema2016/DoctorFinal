@@ -20,14 +20,19 @@ class ReserveVC: UIViewController {
     let user = Auth.auth().currentUser
     var values = [String : Any]()
     var reservationDay = ""
-    var children = UInt()
+    var childrenFirebase = UInt()
     var nextInLine = UInt()
     var dateComponents = DateComponents()
     
     let notificationDayDate = Date()
     let nformatter  = DateFormatter()
     
-
+    @IBAction func btn_back(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     func confirmedAlert(){
         let alert = UIAlertController(title: "Confirmed",
@@ -46,8 +51,8 @@ class ReserveVC: UIViewController {
     func alert(){
         let defaults = UserDefaults.standard
         
-        if self.children == 10 {
-            print("children here",self.children)
+        if self.childrenFirebase == 10 {
+            print("childrenFirebase here",self.childrenFirebase)
             let alert = UIAlertController(title: "Day Complete",
                                           message: "Please choose another Day",
                 preferredStyle: .alert)
@@ -59,7 +64,7 @@ class ReserveVC: UIViewController {
             alert.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
             present(alert, animated: true)
         }else if defaults.object(forKey: "reservedDateeee") == nil {
-            print("children",self.children)
+            print("childrenFirebase",self.childrenFirebase)
             let alert = UIAlertController(title: "Confirm",
                                           message: "\(finalDate) at \(finalPeriod)",
                 preferredStyle: .alert)
@@ -74,56 +79,56 @@ class ReserveVC: UIViewController {
         }
         
     }
-    func checkChildren(){
+    func checkchildrenFirebase(){
         
         self.ref.child(finalDate).child(finalPeriod).observe(.value, with: { (dataSnapshot) in
             print(dataSnapshot.childrenCount)
-            self.children = dataSnapshot.childrenCount
+            self.childrenFirebase = dataSnapshot.childrenCount
             if self.finalPeriod == "Night"{
-                if self.children < 2 {
+                if self.childrenFirebase < 2 {
                     print("I am 2")
                     self.dateComponents.hour = 20
                     self.dateComponents.minute = 0
-                }else if self.children < 4 {
+                }else if self.childrenFirebase < 4 {
                     print("I am 4")
                     self.dateComponents.hour = 21
                     self.dateComponents.minute = 0
-                }else if self.children < 6 {
+                }else if self.childrenFirebase < 6 {
                     print("I am 6")
                     self.dateComponents.hour = 22
                     self.dateComponents.minute = 0
                 }
-                else if self.children < 8 {
+                else if self.childrenFirebase < 8 {
                     print("I am 8")
                     self.dateComponents.hour = 23
                     self.dateComponents.minute = 0
                 }
-                else if self.children <= 10 {
+                else if self.childrenFirebase <= 10 {
                     print("I am 10")
                     self.dateComponents.hour = 24
                     self.dateComponents.minute = 0
                 }
             }
             else{
-                if self.children < 2 {
+                if self.childrenFirebase < 2 {
                     print("I am 2")
                     self.dateComponents.hour = 13
                     self.dateComponents.minute = 0
-                }else if self.children < 4 {
+                }else if self.childrenFirebase < 4 {
                     print("I am 4")
                     self.dateComponents.hour = 14
                     self.dateComponents.minute = 0
-                }else if self.children < 6 {
+                }else if self.childrenFirebase < 6 {
                     print("I am 6")
                     self.dateComponents.hour = 15
                     self.dateComponents.minute = 0
                 }
-                else if self.children < 8 {
+                else if self.childrenFirebase < 8 {
                     print("I am 8")
                     self.dateComponents.hour = 16
                     self.dateComponents.minute = 0
                 }
-                else if self.children <= 10 {
+                else if self.childrenFirebase <= 10 {
                     print("I am 10")
                     self.dateComponents.hour = 17
                     self.dateComponents.minute = 0
@@ -169,7 +174,7 @@ class ReserveVC: UIViewController {
             print("here is the day ",day)
             print(period)
             removingRef.child(day!).child(period!).queryOrdered(byChild: "UId").queryEqual(toValue : "81HEXixy4fRVSEQXgpI3LU7UalE3").observe(.value, with:{ (snapshot: DataSnapshot) in
-                for snap in snapshot.children {
+                for snap in snapshot.children{
                     print((snap as! DataSnapshot).key)
                     
                     
@@ -313,7 +318,7 @@ class ReserveVC: UIViewController {
         dateComponents.hour = 18
         dateComponents.minute = 25
         
-        checkChildren()
+        checkchildrenFirebase()
         
     }
     @IBAction func secondDayNight(_ sender: UIButton) {
@@ -343,7 +348,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-        checkChildren()
+        checkchildrenFirebase()
         
     }
     @IBAction func thirdDayDay(_ sender: UIButton) {
@@ -372,7 +377,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-        checkChildren()
+        checkchildrenFirebase()
         
     }
     @IBAction func thirdDayNight(_ sender: UIButton) {
@@ -402,7 +407,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-       checkChildren()
+       checkchildrenFirebase()
        
     }
     @IBAction func fourthDayDay(_ sender: UIButton) {
@@ -431,7 +436,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-        checkChildren()
+        checkchildrenFirebase()
         
     }
     @IBAction func fourthDayNight(_ sender: UIButton) {
@@ -461,7 +466,7 @@ class ReserveVC: UIViewController {
         
         
         
-       checkChildren()
+       checkchildrenFirebase()
         
     }
     //@IBOutlet weak var fifthDayDay: UIButton!
@@ -490,7 +495,7 @@ class ReserveVC: UIViewController {
         dateComponents.hour = 18
         dateComponents.minute = 25
         
-       checkChildren()
+       checkchildrenFirebase()
         
     }
     @IBAction func fifthDayNight(_ sender: UIButton) {
@@ -518,7 +523,7 @@ class ReserveVC: UIViewController {
         dateComponents.hour = 18
         dateComponents.minute = 25
         
-        checkChildren()
+        checkchildrenFirebase()
         
     }
     @IBAction func seventhDayNight(_ sender: UIButton) {
@@ -548,7 +553,7 @@ class ReserveVC: UIViewController {
         
         
         
-        checkChildren()
+        checkchildrenFirebase()
        
     }
     @IBAction func seventhDayDay(_ sender: UIButton) {
@@ -577,7 +582,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-        checkChildren()
+        checkchildrenFirebase()
        
     }
     @IBAction func sixthDayNight(_ sender: UIButton) {
@@ -606,7 +611,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-        checkChildren()
+        checkchildrenFirebase()
         
     }
     @IBAction func sixthDayDay(_ sender: UIButton) {
@@ -634,7 +639,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 25
         
         
-       checkChildren()
+       checkchildrenFirebase()
         
     }
     @IBAction func firstDayNight(_ sender: UIButton) {
@@ -652,7 +657,7 @@ class ReserveVC: UIViewController {
         let monthComponent = myCalendar.components(.month, from: todayDate)
         let month = monthComponent.month
         
-        checkChildren()
+        checkchildrenFirebase()
         dateComponents.month = month!
         dateComponents.day = today!
         
@@ -668,8 +673,8 @@ class ReserveVC: UIViewController {
         self.values = ["UId":finalUID]
         //ref = ref.child(finalDate).child(finalPeriod)
        
-        if self.children < 10 {
-            self.nextInLine = children+1
+        if self.childrenFirebase < 10 {
+            self.nextInLine = childrenFirebase+1
             self.ref.child(finalDate).child(finalPeriod).child("\(nextInLine)").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
                 if error != nil {
                     print("oops, an error")
@@ -799,7 +804,7 @@ class ReserveVC: UIViewController {
         dateComponents.minute = 5
         
         
-        checkChildren()
+        checkchildrenFirebase()
         
         
         

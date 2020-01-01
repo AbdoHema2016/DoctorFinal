@@ -54,10 +54,10 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
-                    finalUserID = (user?.uid)!
+                    finalUserID = user?.user.uid ?? "user"
                     print("You have successfully signed up")
                     
-                    let finalUID = (user?.uid)!
+                    let finalUID = user?.user.uid ?? "user"
                     self.values = ["UId":finalUID,"fullName":"Enter your Name"]
                     self.ref.child(finalUID).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
                         if error != nil {

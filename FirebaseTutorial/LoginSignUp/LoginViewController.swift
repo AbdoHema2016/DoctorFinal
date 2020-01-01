@@ -42,14 +42,14 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
     }
     
     @IBAction func facebookLogin(sender: UIButton) {
-        let fbLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+        let fbLoginManager = LoginManager()
+        fbLoginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
             if let error = error {
                 print("Failed to login: \(error.localizedDescription)")
                 return
             }
             
-            guard let accessToken = FBSDKAccessToken.current() else {
+            guard let accessToken = AccessToken.current else {
                 print("Failed to get access token")
                 return
             }
@@ -69,8 +69,8 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
                 }
                 let userRef = Database.database().reference().child("Patients")
                 
-                self.values = ["fullName":user?.displayName! ?? "Your Name"]
-                userRef.child((user?.uid)!).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
+                self.values = ["fullName":user?.user.displayName! ?? "Your Name"]
+                userRef.child((user?.user.uid)!).child("BasicInfo").updateChildValues(self.values, withCompletionBlock: { (error, snapshot) in
                     if error != nil {
                         print("oops, an error")
                     } else {
@@ -121,7 +121,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate {
             Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
-                    finalUserID = (user?.uid)!
+                    finalUserID = (user?.user.uid)!
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     /*

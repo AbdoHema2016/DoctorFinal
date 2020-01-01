@@ -169,13 +169,7 @@ class UserProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource 
         Appointment_Btn.layer.borderColor = UIColor.black.cgColor
         
         
-        upperView_UIView.layer.shadowColor = UIColor.black.cgColor
-        upperView_UIView.layer.shadowOpacity = 0.7
-        upperView_UIView.layer.shadowOffset = .zero
-        upperView_UIView.layer.shadowRadius = 10
-        upperView_UIView.layer.shadowPath = UIBezierPath(rect: upperView_UIView.bounds).cgPath
-        upperView_UIView.layer.shouldRasterize = true
-        upperView_UIView.layer.rasterizationScale = UIScreen.main.scale
+        upperView_UIView.setShadow()
         
         if let user = self.user {
             print("the user",user.uid)

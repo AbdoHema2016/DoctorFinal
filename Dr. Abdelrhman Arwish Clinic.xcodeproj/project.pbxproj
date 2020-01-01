@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BA396BF499172467D6FF900 /* Pods_Dr__Abdelrhman_Arwish_Clinic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77646FC828C4CD06876F0AF0 /* Pods_Dr__Abdelrhman_Arwish_Clinic.framework */; };
+		94A5EDE423B767B200A1E254 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A5EDE323B767B200A1E254 /* UIView+Extensions.swift */; };
 		BC0452101FFFC34D002B16BC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC04520E1FFFC34D002B16BC /* SWRevealViewController.m */; };
 		BC0452121FFFC74D002B16BC /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0452111FFFC74D002B16BC /* BackTableVC.swift */; };
 		BC4A66521FE448D4009FC8EF /* IndividualPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4A66511FE448D4009FC8EF /* IndividualPostVC.swift */; };
@@ -24,7 +26,6 @@
 		BCC6829422B31107004F5604 /* VisitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6829322B31107004F5604 /* VisitVC.swift */; };
 		BCECAB341FE57D1B00363431 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BCECAB331FE57D1B00363431 /* Reachability.m */; };
 		BCECAB361FE57E1D00363431 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCECAB351FE57E1D00363431 /* Reachability.swift */; };
-		C043F062DA513C3DA7EFC655 /* Pods_Doc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25664232AFC2FC054DAB3C05 /* Pods_Doc.framework */; };
 		F4443AE01DF2DFDA00800C92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4443ADF1DF2DFDA00800C92 /* AppDelegate.swift */; };
 		F4443AE51DF2DFDA00800C92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4443AE31DF2DFDA00800C92 /* Main.storyboard */; };
 		F4443AE71DF2DFDA00800C92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4443AE61DF2DFDA00800C92 /* Assets.xcassets */; };
@@ -36,8 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		25664232AFC2FC054DAB3C05 /* Pods_Doc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Doc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77646FC828C4CD06876F0AF0 /* Pods_Dr__Abdelrhman_Arwish_Clinic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dr__Abdelrhman_Arwish_Clinic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8FC9296245E6A105BB3737 /* Pods-Doc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doc.release.xcconfig"; path = "Pods/Target Support Files/Pods-Doc/Pods-Doc.release.xcconfig"; sourceTree = "<group>"; };
+		7F588BDB094429F383AA4AF3 /* Pods-Dr. Abdelrhman Arwish Clinic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr. Abdelrhman Arwish Clinic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dr. Abdelrhman Arwish Clinic/Pods-Dr. Abdelrhman Arwish Clinic.debug.xcconfig"; sourceTree = "<group>"; };
+		8C803EC5F62B94EC351785D5 /* Pods-Dr. Abdelrhman Arwish Clinic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr. Abdelrhman Arwish Clinic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dr. Abdelrhman Arwish Clinic/Pods-Dr. Abdelrhman Arwish Clinic.release.xcconfig"; sourceTree = "<group>"; };
+		94A5EDE323B767B200A1E254 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		B3313F89CA4E68E786E0EC0E /* Pods-Doc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Doc/Pods-Doc.debug.xcconfig"; sourceTree = "<group>"; };
 		BC04520E1FFFC34D002B16BC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BC04520F1FFFC34D002B16BC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -80,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C043F062DA513C3DA7EFC655 /* Pods_Doc.framework in Frameworks */,
+				6BA396BF499172467D6FF900 /* Pods_Dr__Abdelrhman_Arwish_Clinic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +96,18 @@
 			children = (
 				B3313F89CA4E68E786E0EC0E /* Pods-Doc.debug.xcconfig */,
 				7B8FC9296245E6A105BB3737 /* Pods-Doc.release.xcconfig */,
+				7F588BDB094429F383AA4AF3 /* Pods-Dr. Abdelrhman Arwish Clinic.debug.xcconfig */,
+				8C803EC5F62B94EC351785D5 /* Pods-Dr. Abdelrhman Arwish Clinic.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		94A5EDE223B7678400A1E254 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94A5EDE323B767B200A1E254 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BCE967F5206E841C0006AD42 /* LoginSignUp */ = {
@@ -170,7 +184,7 @@
 		F006AE8716E02A894D14D237 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				25664232AFC2FC054DAB3C05 /* Pods_Doc.framework */,
+				77646FC828C4CD06876F0AF0 /* Pods_Dr__Abdelrhman_Arwish_Clinic.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,6 +211,7 @@
 		F4443ADE1DF2DFDA00800C92 /* FirebaseTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				94A5EDE223B7678400A1E254 /* Extensions */,
 				BCE967F5206E841C0006AD42 /* LoginSignUp */,
 				BCE967FB206E84F90006AD42 /* History */,
 				BCE967FA206E84E00006AD42 /* Profile */,
@@ -250,7 +265,7 @@
 				TargetAttributes = {
 					F4443ADB1DF2DFDA00800C92 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 7W2DV84ZGN;
+						DevelopmentTeam = EKK9M2H3G4;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -305,7 +320,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Doc-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Dr. Abdelrhman Arwish Clinic-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -318,13 +333,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Doc/Pods-Doc-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Dr. Abdelrhman Arwish Clinic/Pods-Dr. Abdelrhman Arwish Clinic-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -334,16 +349,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Doc/Pods-Doc-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dr. Abdelrhman Arwish Clinic/Pods-Dr. Abdelrhman Arwish Clinic-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		92475AE55A08C39772A17EE8 /* [CP] Copy Pods Resources */ = {
@@ -352,16 +367,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Doc/Pods-Doc-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Dr. Abdelrhman Arwish Clinic/Pods-Dr. Abdelrhman Arwish Clinic-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Doc/Pods-Doc-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dr. Abdelrhman Arwish Clinic/Pods-Dr. Abdelrhman Arwish Clinic-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -381,6 +396,7 @@
 				BCC6829422B31107004F5604 /* VisitVC.swift in Sources */,
 				BCC0714D206CFAF50098EBAD /* HistoryVC.swift in Sources */,
 				F4443AF81DF2E34F00800C92 /* ResetPasswordViewController.swift in Sources */,
+				94A5EDE423B767B200A1E254 /* UIView+Extensions.swift in Sources */,
 				BCECAB361FE57E1D00363431 /* Reachability.swift in Sources */,
 				BC5E5D341FA8D3A7007497F6 /* HomeVC.swift in Sources */,
 				BC5E5D361FA8D408007497F6 /* WallCell.swift in Sources */,
@@ -515,15 +531,15 @@
 		};
 		F4443AEF1DF2DFDA00800C92 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3313F89CA4E68E786E0EC0E /* Pods-Doc.debug.xcconfig */;
+			baseConfigurationReference = 7F588BDB094429F383AA4AF3 /* Pods-Dr. Abdelrhman Arwish Clinic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr. Michael Maged.entitlements";
-				DEVELOPMENT_TEAM = 7W2DV84ZGN;
+				DEVELOPMENT_TEAM = EKK9M2H3G4;
 				INFOPLIST_FILE = FirebaseTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdeo.Doctor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdeo.DoctorM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseTutorial/Doc-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -534,15 +550,15 @@
 		};
 		F4443AF01DF2DFDA00800C92 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B8FC9296245E6A105BB3737 /* Pods-Doc.release.xcconfig */;
+			baseConfigurationReference = 8C803EC5F62B94EC351785D5 /* Pods-Dr. Abdelrhman Arwish Clinic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Dr. Michael Maged.entitlements";
-				DEVELOPMENT_TEAM = 7W2DV84ZGN;
+				DEVELOPMENT_TEAM = EKK9M2H3G4;
 				INFOPLIST_FILE = FirebaseTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdeo.Doctor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdeo.DoctorM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseTutorial/Doc-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
