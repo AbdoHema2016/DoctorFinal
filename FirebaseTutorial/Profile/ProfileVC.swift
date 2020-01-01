@@ -176,7 +176,7 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UINa
         
         
         
-        
+         
         let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
         let viewController = storyboard.instantiateViewController(withIdentifier: "TBC")
         UIApplication.shared.keyWindow?.rootViewController = viewController
